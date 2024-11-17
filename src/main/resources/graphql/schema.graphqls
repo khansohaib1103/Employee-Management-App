@@ -1,0 +1,21 @@
+type Employee {
+    id: ID!
+    name: String!
+    age: Int!
+    employeeClass: String
+    password: String
+    subjects: [String]
+    attendance: Int
+    role: String
+}
+
+type Query {
+    listEmployees(page: Int, size: Int, sort: String): [Employee]
+    getEmployeeById(id: ID!): Employee
+    searchEmployees(name: String): [Employee]
+}
+
+type Mutation {
+    addEmployee(name: String!, age: Int!, employeeClass: String, password: String, subjects: [String], attendance: Int, role: String): Employee
+    updateEmployee(id: ID!, name: String, age: Int, employeeClass: String, password: String, subjects: [String], attendance: Int, role: String): Employee
+}
